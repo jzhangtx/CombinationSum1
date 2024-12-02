@@ -40,14 +40,32 @@ std::vector<std::vector<int>> CombinationSum(std::vector<int>& A, int val)
 
 int main()
 {
-    std::vector<int> v{1, 2, 3, 4, 8};
-    std::vector<std::vector<int>> r = CombinationSum(v, 7);
-    for (auto& vv : r)
+    while (true)
     {
-        if (!vv.empty())
-            std::cout << vv[0];
-        for (auto i = vv.begin()+1; i != vv.end(); ++i)
-            std::cout << ", " << *i;
-        std::cout << std::endl;
+        std::cout << "Number of elements in array: ";
+        int count = 0;
+        std::cin >> count;
+        if (count == 0)
+            break;
+
+        std::cout << "Numbers in array: ";
+        std::vector<int> vec(count, 0);
+        for (int i = 0; i < count; ++i)
+            std::cin >> vec[i];
+
+        std::cout << "The sum: ";
+        int sum;
+        std::cin >> sum;
+
+        std::vector<std::vector<int>> r = CombinationSum(vec, sum);
+        for (auto& vv : r)
+        {
+            if (!vv.empty())
+                std::cout << vv[0];
+            for (auto i = vv.begin() + 1; i != vv.end(); ++i)
+                std::cout << ", " << *i;
+            std::cout << std::endl;
+        }
     }
+    std::cout << std::endl;
 }
