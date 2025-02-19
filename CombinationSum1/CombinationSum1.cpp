@@ -15,13 +15,7 @@ void GetCombinations(const std::vector<int>& vec, int target, size_t index, std:
     if (index == vec.size() || target < 0)
         return;
 
-    // re-using the current element
-    v.push_back(vec[index]);
-    GetCombinations(vec, target - vec[index], index, v, result);
-    v.pop_back();
-
-    // use all the elements after the current one
-    for (size_t i = index + 1; i < vec.size(); ++i)
+    for (size_t i = index; i < vec.size(); ++i)
     {
         v.push_back(vec[i]);
         GetCombinations(vec, target - vec[i], i, v, result);
